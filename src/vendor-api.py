@@ -52,7 +52,7 @@ gpt35_completion = openai_client.chat.completions.create(
     model="gpt-3.5-turbo", 
     messages=[{"role": "user", "content": PROMPT}]
 )
-gpt35_response = gpt35_completion.to_dict()
+gpt35_response = gpt35_completion.model_dump()
 out = write_dict_to_file(
     gpt35_response, os.path.join("prompt_results", "openai", run_name, "response.json")
 )
